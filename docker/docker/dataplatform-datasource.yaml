@@ -1,0 +1,11 @@
+databases:
+  - allow_file_upload: false
+    allow_ctas: false
+    allow_cvas: false
+    expose_in_sqllab: true
+    allow_run_async: false
+    cache_timeout: null
+    database_name: Data Platform
+    extra: "{\n  \"allows_virtual_table_explore\": true,\n  \"engine_params\": {\n    \"connect_args\": {\n      \"http_path\": \"/sql/1.0/endpoints/65dfba5618cc2331\"\n    }\n  },\n  \"metadata_params\": {},\n  \"schemas_allowed_for_file_upload\": []\n}"
+    sqlalchemy_uri: databricks+connector://token:__TOKEN__@mirakl-data-platform.cloud.databricks.com:443/sql/1.0/warehouses/65dfba5618cc2331
+    tables: []

@@ -1,0 +1,35 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "vercel-build": "npx tsx ./server/utils/build.js"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.9.4",
+    "nuxt": "^3.8.0",
+    "nuxt-icon": "^0.6.1",
+    "nuxt-simple-sitemap": "^3.4.1",
+    "tsx": "^4.7.2",
+    "typescript": "^5.2.2",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-vue-next": "^0.292.0",
+    "pinia": "^2.1.7",
+    "axios": "^1.6.5",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "@superset-ui/embedded-sdk": "0.1.0-alpha.11"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  // https://nuxt.com/docs/guide/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+      "module": "ESNext" // or ES2015, ES2020
+  },
+  "ts-node": {
+      // Tell ts-node CLI to install the --loader automatically
+      "esm": true
+  }
+}
