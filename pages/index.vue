@@ -13,7 +13,6 @@
             </RobotCard>
         </div>
         
-        
         <div id="my-superset-container" class="flex"></div>
       </div>
     </div>
@@ -45,19 +44,18 @@ import { useRobots } from '~/stores/robots'
 import { ref } from 'vue'
 import { embedDashboard } from "@superset-ui/embedded-sdk";
 import { useAxios } from '~/composables/useAxios';
-import { useRuntimeConfig } from 'nuxt/app';
 
 useAxios().get('/api/guest-token')
 .then((response) => {
     const guestToken = response.data.token;
-    embed(guestToken, "650c2a65-3655-42e9-8374-fdab8314702b", 'my-superset-container');
+    embed(guestToken);
 })
 
-function embed(guestToken: string, dashboardId: string, htmlElement: string) {
+function embed(guestToken: string) {
     embedDashboard({
-        id: dashboardId, // given by the Superset embedding UI
-        supersetDomain:  useRuntimeConfig().public.superset.host, // e.g. "https://superset.mycompany.com" or "http://localhost:8088" (optional)
-        mountPoint: document.getElementById(htmlElement), // any html element that can contain an iframe
+        id: "e5d2a94a-f12d-44c5-995a-4b8f043aca5a", // given by the Superset embedding UI
+        supersetDomain:  "http://localhost:8088", // e.g. "https://superset.mycompany.com" or "http://localhost:8088" (optional)
+        mountPoint: document.getElementById('my-superset-container'), // any html element that can contain an iframe
         fetchGuestToken: () => guestToken,
         dashboardUiConfig: { // dashboard UI config: hideTitle, hideTab, hideChartControls, filters.visible, filters.expanded (optional), urlParams (optional)
             hideTitle: true,

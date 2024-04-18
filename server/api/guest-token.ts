@@ -5,8 +5,6 @@ export default async function defineEventHandler(request, response) {
     var supersetUser = process.env.SUPERSET_USER
     var supersetPassword = process.env.SUPERSET_PASSWORD
 
-    console.log(supersetHost)
-
     const loginResponse = await axios.post(`${supersetHost}/api/v1/security/login`, {
         "password": supersetPassword,
         "provider": "db",
@@ -17,7 +15,7 @@ export default async function defineEventHandler(request, response) {
     const guestTokenResponse = await axios.post(`${supersetHost}/api/v1/security/guest_token/`, {
         "resources": [
           {
-            "id": "45",
+            "id": "46",
             "type": "dashboard"
           }
         ],

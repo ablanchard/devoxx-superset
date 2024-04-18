@@ -11,7 +11,7 @@ export const robots = [
 
 export const regions = [
   {id: 'america', name: "Americas", robots: {'marvin': 75, 'walle': 20, 'devoxx': 10}},
-  {id: 'europe', name: "Europe", robots: {'r2d2': 10, 'devoxx': 90}},
+  {id: 'europe', name: "Europe", robots: {'r2d2': 10, 'devoxx': 10}},
   {id: 'asia', name: "Asia", robots: {'r2d2': 50, 'k9': 50}},
   {id: 'africa', name: "Africa", robots: {'k9': 30, 'marvin': 30, 'r2d2': 30, 'walle': 10}},
 ]
@@ -32,17 +32,18 @@ for (let day = 1; day <= 20; day++) {
 
 
 export const actionPerRobot = [
-  {id: 'r2d2-europe-1-1', robot: 'r2d2', region: 'europe', dayOfProduction: 1, day: 8, actions: 12},
+  {id: 'r2d2-europe-1-1', robot: 'r2d2', region: 'europe', dayOfProduction: 1, day: 8, actions: 12, imageUrl: 'toto'},
 ]
 
 const MAX_ACTIONS_PER_DAY = 10
 
 for (let day = 1; day <= 20; day++) {
   for (let production of productionPerDay) {
-    if (production.day >= day) {
+    if (day >= production.day) {
       for (let i = 0; i < production.quantity; i++) {
+        var robotSpec = robots.find(robot => robot.id === production.robot)
         var randomizedActions = Math.floor(MAX_ACTIONS_PER_DAY * Math.random())
-        actionPerRobot.push({id: `${production.robot}-${production.region}-${production.day}-${i}`, robot: production.robot, region: production.region, dayOfProduction: production.day, day: day, actions: randomizedActions})
+        actionPerRobot.push({id: `${production.robot}-${production.region}-${production.day}-${i}`, robot: production.robot, region: production.region, dayOfProduction: production.day, day: day, actions: randomizedActions, imageUrl: "http://localhost:3000/" + robotSpec?.image})
       }
     } 
   }
