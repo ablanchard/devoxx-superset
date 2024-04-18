@@ -1,75 +1,26 @@
-# Nuxt 3 Minimal Starter
+# Devoxx superset demo
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Start superset and database
 
-## Setup
+Start superset
+```
+cd docker
+docker-compose up
+```
 
-Make sure to install the dependencies:
+## Start the webapp
 
-```bash
-# npm
+```
 npm install
+vercel dev --debug
+```
+## Populate the database
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+npx tsx server/utils/build.ts
+ psql -h localhost -p 15432 -Upostgres -f server/utils/queries.sql # password: postgres
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Access the tools
+webapp: http://localhost:3000
+superset: http://localhost:8088
